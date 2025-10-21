@@ -1,3 +1,130 @@
-body{
-background-image: url("{{ url_for('static', filename='images/bg-image.png') }}");
-}
+body {
+            background-color: rgba(230, 216, 202);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* ---------- MAIN CONTAINER ---------- */
+        .main_container {
+            height: 17cm;
+            width: 30cm;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .cover-cont {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        /* ---------- LEFT SIDEBAR ---------- */
+        .left_sidebar {
+            width: 5cm;
+            height: 17cm;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-right: 1px solid #eee;
+        }
+
+        /* Profile section */
+        .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 1rem; /* reduced gap */
+        }
+
+        .img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: url('profile.jpg') center/cover no-repeat;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 0.8rem;
+        }
+
+        .name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .email {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Tools section */
+        .tools {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 85%;
+            gap: 0.5rem;
+            margin-top: 0.5rem; /* reduced gap between profile and tools */
+        }
+
+        .tool-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
+            color: #555;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .tool-item:hover {
+            background-color: #f2edea;
+            color: #111;
+        }
+
+        /* Active (clicked) state */
+        .tool-item.active {
+            background-color: #f2edea;
+            color: #000;
+            font-weight: 400;
+            box-shadow: inset 3px 0 0 #d6b89f;
+        }
+
+        .tool-item i {
+            font-size: 1rem;
+            width: 18px;
+            text-align: center;
+        }
+
+        /* ---------- MIDDLE & RIGHT ---------- */
+        .middle_sidebar {
+            width: 18cm;
+            height: 17cm;
+            background-color: #fffffe;
+            border-right: 1px solid #eee;
+        }
+
+        .right_sidebar {
+            width: 7cm;
+            height: 17cm;
+            background-color: rgba(255, 244, 240);
+            border-radius: 0 20px 20px 0;
+        }
+
+        .left_sidebar, .middle_sidebar, .right_sidebar {
+            overflow: hidden;
+        }

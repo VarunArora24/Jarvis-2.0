@@ -5,9 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 
 </head>
 <body>
-    
+   <div class="main_container">
+    <div class="cover-cont">
+        <div class="left_sidebar">
+            <div class="profile">
+                <div class="img"></div>
+                <div class="name">Your Name</div>
+                <div class="email">your email</div>
+            </div>
+
+            <div class="tools">
+                <div class="tool-item"><i class="fa-solid fa-gauge"></i> Dashboard</div>
+                <div class="tool-item"><i class="fa-solid fa-list-check"></i> Todo List</div>
+                <div class="tool-item"><i class="fa-regular fa-clock"></i> Clock</div>
+                <div class="tool-item"><i class="fa-regular fa-comment-dots"></i> Text</div>
+                <div class="tool-item"><i class="fa-solid fa-calculator"></i> Calculator</div>
+                <div class="tool-item"><i class="fa-solid fa-gear"></i> Settings</div>
+            </div>
+        </div>
+
+        <div class="middle_sidebar"></div>
+        <div class="right_sidebar"></div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
