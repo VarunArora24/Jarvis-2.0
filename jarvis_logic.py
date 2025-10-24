@@ -1,4 +1,5 @@
 import random
+import os
 from datetime import datetime
 import requests
 
@@ -34,7 +35,7 @@ list_greet = [
 
 # Weather function
 def get_weather(city):
-    api_key = "a310591ba1e5c257a69083f83e6bb9b3"
+    api_key = os.environ.get("OPENWEATHER_API_KEY")
     url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
     try:
         response = requests.get(url)
