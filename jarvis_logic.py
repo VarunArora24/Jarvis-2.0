@@ -6,12 +6,14 @@ import requests
 name = "Varun"
 
 # Greeting logic
+from datetime import datetime, timedelta
+
 def get_greeting():
     # Convert UTC to IST (UTC+5:30)
     now_utc = datetime.utcnow()
     now_ist = now_utc + timedelta(hours=5, minutes=30)
     current_hour = now_ist.hour
-    
+
     if 0 <= current_hour < 12:
         time_of_day = "morning"
     elif 12 <= current_hour < 16:
@@ -20,8 +22,9 @@ def get_greeting():
         time_of_day = "evening"
     else:
         time_of_day = "night"
-    
+
     return f"Good {time_of_day}, {name}!"
+
 
 # Greeting responses
 list_greet = [
