@@ -1,41 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/calculator.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Oswald:wght@400;600;700&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="{{ url_for('static', filename='images/jarvis.ico') }}">
-
-
-
-
 </head>
+
 <body>
-   <div class="main_container">
-    <div class="cover-cont">
-        <div class="left_sidebar">
-            <div class="profile">
-                <div class="img"></div>
-                <div class="name">Your Name</div>
-                <div class="email">your email</div>
+    <div class="main_container">
+        <div class="cover-cont">
+            <!-- ---------- LEFT SIDEBAR ---------- -->
+            <div class="left_sidebar">
+                <div class="profile">
+                    <div class="img" style="background-image: url('{{ url_for('static', filename='images/profile.png') }}')">
+                        
+                    </div>
+                    <div class="name">{{ name }}</div>
+                    <div class="email">{{ email }}</div>
+                </div>
+
+                <div class="tools">
+                    <div class="tool-item"><i class="fa-solid fa-gauge"></i> Dashboard</div>
+                    <div class="tool-item"><i class="fa-solid fa-list-check"></i> Todo List</div>
+                    <div class="tool-item"><i class="fa-regular fa-clock"></i> Clock</div>
+                    <div class="tool-item"><i class="fa-regular fa-comment-dots"></i> Text</div>
+                    <div class="tool-item"><i class="fa-solid fa-calculator"></i> Calculator</div>
+                    <div class="tool-item"><i class="fa-solid fa-gear"></i> Settings</div>
+                </div>
             </div>
 
-            <div class="tools">
-                <div class="tool-item"><i class="fa-solid fa-gauge"></i> Dashboard</div>
-                <div class="tool-item"><i class="fa-solid fa-list-check"></i> Todo List</div>
-                <div class="tool-item"><i class="fa-regular fa-clock"></i> Clock</div>
-                <div class="tool-item"><i class="fa-regular fa-comment-dots"></i> Text</div>
-                <div class="tool-item"><i class="fa-solid fa-calculator"></i> Calculator</div>
-                <div class="tool-item"><i class="fa-solid fa-gear"></i> Settings</div>
+            <!-- ---------- MIDDLE SIDEBAR ---------- -->
+            <div class="middle_sidebar">
+                <div class="greeting-container">
+                    <h2>{{ greet_message }}</h2>
+                    <p>{{ today_message }}</p>
+                </div>
+
+                <!-- Dashboard Section -->
+                <div class="dashboard_content content_block active">
+                    <div class="dashboard-contacts">
+                        <a href="https://github.com/VarunArora24" target="_blank" class="contact-item contact-github">
+                            GitHub
+                        </a>
+                        <a href="" target="_blank" class="contact-item contact-instagram">
+                            Instagram
+                        </a>
+                        <a href="" target="_blank" class="contact-item contact-gmail">
+                            Gmail
+                        </a>
+                        <a href="" target="_blank" class="contact-item contact-discord">
+                            Discord
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Other Sections -->
+                <div class="todo_content content_block">
+                    <h2>Todo List</h2>
+                    <p>Manage your tasks here.</p>
+                </div>
+
+                <div class="clock_content content_block">
+                    <h2>Clock</h2>
+                    <p>Current time will appear here.</p>
+                </div>
+
+                <div class="text_content content_block">
+                    <h2>Texting</h2>
+                    <p>Send messages here.</p>
+                </div>
+
+                <!-- Calculator Section -->
+                <!-- <div class="calculator_content content_block">
+                    <div class="calculator_container">
+                        <input type="text" id="display" placeholder="0">
+                        <div class="buttons">
+                            <button id="clear" onclick="clearDisplay()">C</button>
+                            <button id="delete" onclick="deleteChar()">⌫</button>
+                            <button onclick="appendValue('(')">(</button>
+                            <button onclick="appendValue(')')">)</button>
+                            <button onclick="appendValue('^')">^</button>
+                            <button onclick="appendValue('/')">/</button>
+                            <button onclick="appendValue('*')">*</button>
+                            <button onclick="appendValue('-')">-</button>
+                            <button onclick="appendValue('7')">7</button>
+                            <button onclick="appendValue('8')">8</button>
+                            <button onclick="appendValue('9')">9</button>
+                            <button onclick="appendValue('+')">+</button>
+                            <button onclick="appendValue('4')">4</button>
+                            <button onclick="appendValue('5')">5</button>
+                            <button onclick="appendValue('6')">6</button>
+                            <button onclick="appendPi()">π</button>
+                            <button onclick="appendValue('1')">1</button>
+                            <button onclick="appendValue('2')">2</button>
+                            <button onclick="appendValue('3')">3</button>
+                            <button onclick="calculatePercent()">%</button>
+                            <button onclick="appendValue('.')">.</button>
+                            <button onclick="appendValue('0')">0</button>
+                            <button class="equal" onclick="calculateResult()">=</button>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+
+            <!-- ---------- RIGHT SIDEBAR ---------- -->
+            <div class="right_sidebar">
+                <div class="chat-container">
+                    <div class="chat-header">Jarvis 1.0</div>
+                    <div class="chat-messages" id="chat-messages"></div>
+                    <div class="chat-input">
+                        <input type="text" id="user-input" placeholder="Type a message...">
+                        <button id="send-btn">Send</button>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="middle_sidebar"></div>
-        <div class="right_sidebar"></div>
     </div>
-</div>
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
+
 </html>
